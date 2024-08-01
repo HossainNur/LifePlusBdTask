@@ -9,11 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.nurhossain.lifeplusbdtask.api.models.User
 import com.nurhossain.lifeplusbdtask.databinding.ActivityRegistrationBinding
 import com.nurhossain.lifeplusbdtask.ui.dashboard.DashboardActivity
+import com.nurhossain.lifeplusbdtask.utils.Constants
 import com.nurhossain.lifeplusbdtask.viemodel.UserViewModel
 
 class RegistrationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegistrationBinding
     private lateinit var userViewModel: UserViewModel
+    private var userName: String? = null
     //val viewModel : ContactViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,7 @@ class RegistrationActivity : AppCompatActivity() {
         userViewModel.saveStatus.observe(this, Observer { isSaved ->
             if (isSaved) {
                 Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, DashboardActivity::class.java))
+                startActivity(Intent(this, DashboardActivity::class.java).putExtra(Constants.USERNAME,userName))
                 finish()
             } else {
                 Toast.makeText(this, "Failed to save", Toast.LENGTH_SHORT).show()
@@ -52,6 +54,7 @@ class RegistrationActivity : AppCompatActivity() {
             val data = User(name = name , username = username, phone = phone, password = password)
 
             userViewModel.addUser(data)
+            userName = username
         }
 
 

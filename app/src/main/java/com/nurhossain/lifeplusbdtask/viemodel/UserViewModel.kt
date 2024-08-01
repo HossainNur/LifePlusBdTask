@@ -32,6 +32,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
     //fun getUser() : LiveData<List<User>> = repository.getUser()
+    fun getUserInformation() : LiveData<List<User>> = repository.getUser()
 
     fun getUserByUsername(username: String) = liveData(Dispatchers.IO) {
         val user = repository.getUserByUsername(username)
