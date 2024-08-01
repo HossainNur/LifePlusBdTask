@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.nurhossain.lifeplusbdtask.databinding.ActivityLoginBinding
+import com.nurhossain.lifeplusbdtask.ui.dashboard.DashboardActivity
 import com.nurhossain.lifeplusbdtask.ui.registration.RegistrationActivity
 import com.nurhossain.lifeplusbdtask.viemodel.UserViewModel
 
@@ -41,6 +42,8 @@ class LoginActivity : AppCompatActivity() {
             if (user != null) {
                 // User is valid, navigate to the next screen or update UI
                 Toast.makeText(this, "Successfully Login", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, DashboardActivity::class.java))
+                finish()
             } else {
                 // Show error message
                 Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()

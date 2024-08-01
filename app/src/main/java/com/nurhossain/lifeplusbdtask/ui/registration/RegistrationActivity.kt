@@ -1,5 +1,6 @@
 package com.nurhossain.lifeplusbdtask.ui.registration
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.nurhossain.lifeplusbdtask.api.models.User
 import com.nurhossain.lifeplusbdtask.databinding.ActivityRegistrationBinding
+import com.nurhossain.lifeplusbdtask.ui.dashboard.DashboardActivity
 import com.nurhossain.lifeplusbdtask.viemodel.UserViewModel
 
 class RegistrationActivity : AppCompatActivity() {
@@ -28,7 +30,8 @@ class RegistrationActivity : AppCompatActivity() {
         userViewModel.saveStatus.observe(this, Observer { isSaved ->
             if (isSaved) {
                 Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
-                //startActivity(Intent(this, DashboardActivity::class.java))
+                startActivity(Intent(this, DashboardActivity::class.java))
+                finish()
             } else {
                 Toast.makeText(this, "Failed to save", Toast.LENGTH_SHORT).show()
             }
