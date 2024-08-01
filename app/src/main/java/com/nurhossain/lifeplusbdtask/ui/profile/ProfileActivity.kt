@@ -2,10 +2,8 @@ package com.nurhossain.lifeplusbdtask.ui.profile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.nurhossain.lifeplusbdtask.databinding.ActivityProfileBinding
 import com.nurhossain.lifeplusbdtask.utils.Constants
 import com.nurhossain.lifeplusbdtask.viemodel.UserViewModel
