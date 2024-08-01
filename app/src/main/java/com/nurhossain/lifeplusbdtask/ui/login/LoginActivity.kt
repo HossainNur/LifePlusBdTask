@@ -2,12 +2,10 @@ package com.nurhossain.lifeplusbdtask.ui.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.nurhossain.lifeplusbdtask.R
 import android.content.Intent
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.nurhossain.lifeplusbdtask.databinding.ActivityLoginBinding
 import com.nurhossain.lifeplusbdtask.ui.dashboard.DashboardActivity
 import com.nurhossain.lifeplusbdtask.ui.registration.RegistrationActivity
@@ -55,18 +53,4 @@ class LoginActivity : AppCompatActivity() {
     private fun loginUser(username: String, password: String) {
         userViewModel.getValidUser(username,password)
     }
-
-
-
-    /*private fun loginUser(username: String, password: String) {
-        userViewModel.getUser(username, password).observe(this, Observer { user ->
-            if (user != null) {
-                Toast.makeText(this, "Successfully Login", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, DashboardActivity::class.java))
-                finish()
-            } else {
-                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }*/
 }
